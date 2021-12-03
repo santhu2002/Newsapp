@@ -8,7 +8,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const News = (props) => {
     const [articles, setarticles] = useState([]);
     const [page, setpage] = useState(1);
-    const [totalResults, settotalResults] = useState([]);
+    const [totalResults, settotalResults] = useState(0);
+    const [loading, setloading] = useState(true)
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -27,6 +28,7 @@ const News = (props) => {
         settotalResults(parseData.totalResults);
         // console.log(parseData)
         props.setprogress(100);
+        setloading(false)
     }
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - NEWS 360`
@@ -50,6 +52,7 @@ const News = (props) => {
         <>
 
             <h1 className="text-center" style={{ color: props.mode === "light" ? "black" : "white",marginTop:"70px" }}>News 360 - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+            {loading && <Spinner/>}
             <InfiniteScroll
                 dataLength={articles.length}
                 next={fetchMoreData}
