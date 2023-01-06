@@ -33,6 +33,7 @@ const App=()=> {
           />
           <Switch>
             <Route exact path="/"><News setprogress={setprogress} apikey={apikey} key="general" pagesize={pagesize} country="in" category="general" mode={mode} /> </Route>
+            <Route exact path="/Newsapp"><News setprogress={setprogress} apikey={apikey} key="general" pagesize={pagesize} country="in" category="general" mode={mode} /> </Route>
             <Route exact path="/business"><News setprogress={setprogress} apikey={apikey} key="business" pagesize={pagesize} country="in" category="business" mode={mode} /> </Route>
             <Route exact path="/entertainment"><News setprogress={setprogress} apikey={apikey} key="entertainment" pagesize={pagesize} country="in" category="entertainment" mode={mode} /> </Route>
             <Route exact path="/general"><News setprogress={setprogress} apikey={apikey} key="general" pagesize={pagesize} country="in" category="general" mode={mode} /> </Route>
